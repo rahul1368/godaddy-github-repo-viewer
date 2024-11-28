@@ -1,4 +1,4 @@
-import { Col, Divider, Flex, Row, Tag, Typography, Anchor } from "antd";
+import { Col, Divider, Flex, Tag, Typography, Anchor } from "antd";
 
 const { Title, Text } = Typography;
 const { Link } = Anchor;
@@ -24,30 +24,29 @@ export default function RepoDetailsHeader({
 }) {
   return (
     <Flex style={{ flexDirection: "column", justifyContent: "flex-start" }}>
-      <Title level={3}>
+      <Title level={3} style={{ textAlign: "left" }}>
         <Link
           href={`${html_url}`}
           target="_blank"
           title={name}
         />
       </Title>
-      <Text>{description}</Text>
-      <Text>{default_branch}</Text>
+      <Text style={{ textAlign: "left" }}>{description}</Text>
       <Divider />
-      <Row gutter={16}>
-        <Col span={6}>
-          <Tag color="gold">⭐ {stargazers_count} Stars</Tag>
+      <Flex gap={16}>
+        <Col>
+          <Tag color="gold" style={{ borderRadius: "4px", padding: "4px" }}>⭐ {stargazers_count} Stars</Tag>
         </Col>
-        <Col span={6}>
-          <Tag color="blue">🍴 {forks_count} Forks</Tag>
+        <Col>
+          <Tag color="blue" style={{ borderRadius: "4px", padding: "4px" }}>🍴 {forks_count} Forks</Tag>
         </Col>
-        <Col span={6}>
-          <Tag color="blue">🍴 {watchers} Watchers</Tag>
+        <Col>
+          <Tag color="blue" style={{ borderRadius: "4px", padding: "4px" }}>🍴 {watchers} Watchers</Tag>
         </Col>
-        <Col span={6}>
-          <Tag color="green">🐛 {open_issues_count} Open Issues</Tag>
+        <Col>
+          <Tag color="green" style={{ borderRadius: "4px", padding: "4px" }}>🐛 {open_issues_count} Open Issues</Tag>
         </Col>
-      </Row>
+      </Flex>
       <Divider />
     </Flex>
   );

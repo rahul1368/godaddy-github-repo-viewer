@@ -6,9 +6,8 @@ import {
   ProjectOutlined,
   MessageOutlined,
 } from "@ant-design/icons";
-import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useBranches from "../hooks/useBranches";
 
 const { TabPane } = Tabs;
 const { Paragraph } = Typography;
@@ -88,37 +87,7 @@ const RepoDetailsBranchesList = ({
 }: {
   branches_url: string;
 }) => {
-  const [branches, setBranches] = useState({
-    list: [],
-    loading: false,
-    error: false,
-    erorMessage: "",
-  });
-  const fetchBranches = useCallback(async () => {
-    try {
-      setBranches((state) => ({
-        ...state,
-        loading: true
-      }))
-      const response = await axios.get(branches_url);
-      console.log(response.data);
-      setBranches((state: any) => ({
-        ...state,
-        list: response.data,
-      }))
-    } catch (error: any) {
-      
-    } finally {
-      setBranches((state) => ({
-        ...state,
-        loading: false
-      }))
-    }
-  }, [branches_url]);
-
-  useEffect(() => {
-    fetchBranches();
-  }, [fetchBranches]);
+  const branches = useBranches(branches_url);
   return (
     <Table
       dataSource={branches.list}
