@@ -1,4 +1,4 @@
-import { Card, Flex, Table, Tag, Typography } from "antd";
+import { Card, Flex, Space, Table, Tag, Typography } from "antd";
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import {
@@ -45,11 +45,13 @@ export default function RepoOwnerReceivedEvents({
   return (
     <Card
       title={
-        <Flex style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-          <Typography.Title level={5}>Received Events</Typography.Title>
+        <Space style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
           <FileTextOutlined style={{ fontSize: '24px', color: '#fadb14' }} />
-        </Flex>
+          <span>Received Events</span>
+        </Space>
       }
+      bordered
+      hoverable
     >
       <Table
         style={{ width: "100%", height: "400px", overflow: "auto" }}

@@ -29,6 +29,18 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+
+### App features
+
+I have created 2 pages (repo list & repo details) with limited functionalities due to time constraints.
+
+If I get more time I could see many improvements that I can do:
+
+1. First of all I can create more react components to show all the extra info that is coming from the APIs and is not being shown currently due to time constrained.
+2. I can create many popover components to show the details, so that when user hovers on some section of the app, the details open up in the popover.
+
+3. Of course I can improve the UI to increase the UX if i get more time to work on this.
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
