@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
+import ListView from "./pages/ListView";
+import DetailView from "./pages/DetailView";
+import CommonLayout from "./components/CommonLayout";
+import AppRepoDetails from "./components/RepoDetails";
+import { useRepo } from "./context/RepoContext";
+import { useEffect } from "react";
+import axios from "axios";
+
+const GET_REPOS_API_URL = "https://api.github.com/orgs/godaddy/repos";
 
 function App() {
+  const { setRepos } = useRepo();
+  useEffect(() => {
+    const fetchRepos = async () => {
+      const response = await axios.get(GET_REPOS_API_URL);
+      setRepos(response.data);
+    };
+    fetchRepos();
+  }, [setRepos]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <CommonLayout>
+          <Routes>
+            <Route path="/" element={<ListView />} />
+            <Route path="/about" element={<AppRepoDetails />} />
+            <Route path="/repo/:repoId" element={<DetailView />} />
+          </Routes>
+        </CommonLayout>
+      </Router>
     </div>
   );
 }
