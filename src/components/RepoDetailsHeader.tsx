@@ -35,16 +35,16 @@ export default function RepoDetailsHeader({
       <Divider />
       <Flex gap={16}>
         <Col>
-          <Tag color="gold" style={{ borderRadius: "4px", padding: "4px" }}>⭐ {stargazers_count} Stars</Tag>
+          <Tag color="gold" style={{ borderRadius: "4px", padding: "4px" }}>⭐ <span data-testid="stargazers_count">{stargazers_count}</span> Stars</Tag>
         </Col>
         <Col>
-          <Tag color="blue" style={{ borderRadius: "4px", padding: "4px" }}>🍴 {forks_count} Forks</Tag>
+          <Tag color="blue" style={{ borderRadius: "4px", padding: "4px" }}>🍴 <span data-testid="forks_count">{forks_count}</span> Forks</Tag>
         </Col>
         <Col>
-          <Tag color="blue" style={{ borderRadius: "4px", padding: "4px" }}>🍴 {watchers} Watchers</Tag>
+          <Tag color="blue" style={{ borderRadius: "4px", padding: "4px" }}>🍴 <span data-testid="watchers">{watchers}</span> Watchers</Tag>
         </Col>
         <Col>
-          <Tag color="green" style={{ borderRadius: "4px", padding: "4px" }}>🐛 {open_issues_count} Open Issues</Tag>
+          <Tag color="green" style={{ borderRadius: "4px", padding: "4px" }}>🐛 <span data-testid="open_issues_count">{open_issues_count}</span> Open Issues</Tag>
         </Col>
       </Flex>
       <Divider />
