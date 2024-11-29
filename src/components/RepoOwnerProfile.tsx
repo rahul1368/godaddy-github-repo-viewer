@@ -69,10 +69,10 @@ const RepoOwnerProfile: React.FC<RepoOwnerProfileProps> = ({
     >
       <Row gutter={16} style={{ backgroundColor: "#f0f0f0", padding: "16px" }}>
         <Col span={6}>
-          <Avatar size={128} src={avatar_url} icon={<UserOutlined />} />
+          <Avatar data-testid="avatar_url" size={128} src={avatar_url} icon={<UserOutlined />} />
         </Col>
         <Col span={18}>
-          <Typography.Title level={3}>{login}</Typography.Title>
+          <Typography.Title level={3} data-testid="login">{login}</Typography.Title>
           <Typography.Text type="secondary">
             {type} {site_admin && <span>(Site Admin)</span>}
           </Typography.Text>
@@ -81,6 +81,7 @@ const RepoOwnerProfile: React.FC<RepoOwnerProfileProps> = ({
               <Typography.Link>View Profile</Typography.Link>
             </a>
             <a
+              data-testid="repos_url"
               href={repos_url}
               target="_blank"
               rel="noopener noreferrer"
@@ -89,6 +90,7 @@ const RepoOwnerProfile: React.FC<RepoOwnerProfileProps> = ({
               <Typography.Link>View Repositories</Typography.Link>
             </a>
             <a
+              data-testid="gists_url"
               href={gists_url}
               target="_blank"
               rel="noopener noreferrer"
@@ -97,6 +99,7 @@ const RepoOwnerProfile: React.FC<RepoOwnerProfileProps> = ({
               <Typography.Link>View Gists</Typography.Link>
             </a>
             <a
+              data-testid="followers_url"
               href={followers_url}
               target="_blank"
               rel="noopener noreferrer"
@@ -113,6 +116,7 @@ const RepoOwnerProfile: React.FC<RepoOwnerProfileProps> = ({
               <Typography.Link>View Following</Typography.Link>
             </a>
             <a
+              data-testid="organizations_url"
               href={organizations_url}
               target="_blank"
               rel="noopener noreferrer"
